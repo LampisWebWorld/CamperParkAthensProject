@@ -1,0 +1,75 @@
+<div *ngIf="selectedUsername; else noUser">
+    <p>Selected email: {{ selectedUsername }}</p>
+    <form [formGroup]="form" class="flex-column d-flex">
+        <mat-form-field>
+            <mat-label>Email:</mat-label>
+            <input matInput type="text" placeholder="Email" formControlName="email" />
+        </mat-form-field>
+      
+        <mat-form-field>
+            <mat-label>Name:</mat-label>
+          <input matInput placeholder="Name" formControlName="name" />
+        </mat-form-field>
+      
+        <mat-form-field>
+            <mat-label>Surname:</mat-label>
+          <input matInput placeholder="Surname" formControlName="surname" />
+        </mat-form-field>
+      
+        <mat-form-field>
+            <mat-label>ID Number:</mat-label>
+          <input matInput placeholder="ID Number" formControlName="idNumber" />
+        </mat-form-field>
+      
+        <mat-form-field>
+            <mat-label>Phone:</mat-label>
+          <input matInput placeholder="Phone" formControlName="phone" />
+        </mat-form-field>
+
+        <h5>RV Registration</h5>
+
+        <div formGroupName="rv" class="d-flex flex-column">
+        <mat-form-field>
+            <mat-label>Brand:</mat-label>
+            <input matInput type="text" formControlName="brand">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Model:</mat-label>
+            <input matInput type="text" formControlName="model">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Year:</mat-label>
+            <input matInput type="text" formControlName="year">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>License Plate:</mat-label>
+            <input matInput type="text" formControlName="liscencePlate">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Length:</mat-label>
+            <input matInput type="text" formControlName="length">
+        </mat-form-field>
+
+        <div *ngIf="!form.get('rv')?.value?.brand && form.get('rv')?.dirty">
+            <p>N/A</p>
+        </div>
+        </div>
+      </form>
+  </div>
+
+  <button 
+                mat-flat-button 
+                (click)="onSubmit(form.value)"
+                [disabled]="form.invalid"
+            >
+                Update
+            </button>
+  
+  <ng-template #noUser>
+    <p>No user selected.</p>
+  </ng-template>
+  

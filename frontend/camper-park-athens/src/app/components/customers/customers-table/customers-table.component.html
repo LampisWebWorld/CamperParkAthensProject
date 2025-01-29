@@ -1,0 +1,46 @@
+<div class="users-container">
+    <h2>User List</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Surname</th>
+          <th scope="col">Email</th>
+          <th scope="col">ID Number</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of customers; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.surname }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.idNumber }}</td>
+          <td>{{ user.phone }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let rv of user.rv">
+                <strong>Brand:</strong> {{ rv.brand || 'N/A' }}<br>
+                <strong>Model:</strong> {{ rv.model || 'N/A' }}<br>
+                <strong>Year:</strong> {{ rv.year || 'N/A' }}<br>
+                <strong>License Plate:</strong> {{ rv.liscencePlate || 'N/A' }}<br>
+                <strong>Length:</strong> {{ rv.length || 'N/A' }}
+              </li>
+            </ul>
+            <!-- Display N/A if rv array is empty -->
+            <div *ngIf="user.rv.length === 0">
+              N/A
+            </div>
+          </td>
+          
+          <td>
+            <mat-icon class="fs-6" role="button" (click)="selectUser(user.email)">edit</mat-icon>
+            <mat-icon class="fs-6" role="button" (click)="delete(user.email)">delete</mat-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

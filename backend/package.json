@@ -1,0 +1,28 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "This is the application backend",
+  "main": "app.js",
+  "scripts": {
+    "start": "node --env-file=.env app.js",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
+    "dev": "nodemon --env-file=.env app.js"
+  },
+  "author": "Antonopoulos Charalampos",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.0.0",
+    "mongoose-to-swagger": "^1.5.1",
+    "mongoose-unique-validator": "^4.0.1",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.7",
+    "nodemon": "^3.1.9"
+  }
+}

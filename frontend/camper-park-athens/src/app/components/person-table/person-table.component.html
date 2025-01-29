@@ -1,0 +1,55 @@
+@if(!user) {
+  <div class="alert alert-danger text-center">No person details</div>
+} @else {
+  <table class="table table-bordered w-50">
+    <tr>
+      <td class="fw-semibold">Name</td>
+      <td class="ps-2">{{ user.name }}</td>
+    </tr>
+    <tr>
+      <td class="fw-semibold">Surname</td>
+      <td class="ps-2">{{ user.surname }}</td>
+    </tr>
+    <tr>
+      <td class="fw-semibold">Email</td>
+      <td class="ps-2">{{ user.email }}</td>
+    </tr>
+    <tr>
+      <td class="fw-semibold">Username</td>
+      <td class="ps-2">{{ user.username }}</td>
+    </tr>
+    <tr>
+      <td class="fw-semibold">ID Number</td>
+      <td class="ps-2">{{ user.idNumber }}</td>
+    </tr>
+    <tr>
+      <td class="fw-semibold">Phone</td>
+      <td class="ps-2">{{ user.phone }}</td>
+    </tr>
+    <!-- <tr>
+      <td class="fw-semibold">RV</td>
+      <td class="ps-2">
+          <tr>
+            <td>Brand</td>
+            <td>{{ person.rv.brand }}</td>
+          </tr>
+          <tr>
+            <td>Model</td>
+            <td>{{ person.rv.model }}</td>
+          </tr>
+          <tr>
+            <td>Year</td>
+            <td>{{ person.rv.year }}</td>
+          </tr>
+          <tr>
+            <td>Plate number</td>
+            <td>{{ person.rv.liscencePlate }}</td>
+          </tr>
+          <tr>
+            <td>Length</td>
+            <td>{{ person.rv.length }}</td>
+          </tr>
+      </td>
+    </tr> -->
+  </table>
+}
