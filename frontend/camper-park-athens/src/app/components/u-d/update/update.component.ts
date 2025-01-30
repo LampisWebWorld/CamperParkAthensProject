@@ -61,8 +61,7 @@ fetchUserDetails(username: string): void {
   this.userService.showUser(username).subscribe(
     (response: any) => {
       console.log('Response received:', response);
-      
-      // Map the response to the form if needed
+
       const userData = {
         email: response.data.email,
         name: response.data.name,
@@ -73,7 +72,6 @@ fetchUserDetails(username: string): void {
 
       console.log("User data: ", userData)
 
-      // Patch the form with the user data
       this.form.patchValue(userData);
     },
     (error) => {

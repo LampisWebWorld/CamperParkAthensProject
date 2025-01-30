@@ -50,13 +50,13 @@ export class CustomersTableComponent implements OnInit {
     const isConfirmed = window.confirm("Are you sure you want to delete this user?");
   
     if (isConfirmed) {
-      this.usernameService.setUsername(username); // Set the selected username in the UsernameService
+      this.usernameService.setUsername(username);
       console.log('Selected username:', username);
   
       this.customerService.deleteUser(username).subscribe({
         next: (response) => {
           console.log("User deleted successfully", response);
-          window.location.reload(); // Reload the current page after successful deletion
+          this.loadUsers()
         },
         error: (error) => {
           console.log("Error deleting user:", error);

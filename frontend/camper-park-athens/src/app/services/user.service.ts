@@ -20,29 +20,44 @@ export class UserService {
 
     user = signal<LoggedInUser | null>(null)
 
-    constructor(){
-        const token = localStorage.getItem("token")
+    constructor() {
+        const token = localStorage.getItem('token');
         if (token) {
-            const decodedTokenSubject = jwtDecode(token) as any;
-          
-            if (decodedTokenSubject?.username && decodedTokenSubject?.email) {
+          try {
+            const decodedToken = jwtDecode(token) as any;
+            console.log('Decoded Token:', decodedToken);
+      
+            const userInfo = decodedToken.sub;
+            console.log('User Info:', userInfo);
+
+            const isTokenExpired = decodedToken.exp * 1000 < Date.now();
+            if (isTokenExpired) {
+              console.error('Token has expired');
+              this.clearUserState();
+              return;
+            }
+      
+            if (userInfo?.username && userInfo?.email) {
               this.user.set({
-                username: decodedTokenSubject.username,
-                email: decodedTokenSubject.email,
-                role: decodedTokenSubject.role
+                username: userInfo.username,
+                email: userInfo.email,
+                role: userInfo.role,
               });
             } else {
-                console.error('Invalid token subject:', decodedTokenSubject);
+              console.error('Invalid token structure:', decodedToken);
+              this.clearUserState();
             }
+          } catch (error) {
+            console.error('Error decoding token:', error);
+            this.clearUserState();
+          }
         }
-        effect(() =>{
-            if (this.user()){
-                console.log("User logged in: ", this.user()?.username);          
-            } else {
-                console.log('No user logged in');
-            }
-        })
-    }
+      }
+      
+      private clearUserState(): void {
+        this.user.set(null);
+        localStorage.removeItem('token');
+      }
 
     private async generatePasswordToken(password: string): Promise<string> {
         try {

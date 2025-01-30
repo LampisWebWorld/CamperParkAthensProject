@@ -95,7 +95,7 @@ const login = async (req, res) => {
         sub: { username: user.username, email: user.email, role: user.role },
       },
       JWT_SECRET,
-      { expiresIn: "1h" }
+      { expiresIn: "2h" }
     );
 
     res.status(200).json({ token });

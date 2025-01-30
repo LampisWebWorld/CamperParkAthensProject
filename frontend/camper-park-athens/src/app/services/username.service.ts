@@ -8,14 +8,14 @@ export class UsernameService {
 
   constructor() { }
   
-  private usernameSubject = new BehaviorSubject<string | null>(null); // To hold the username
-  username$ = this.usernameSubject.asObservable(); // Observable for components to subscribe
+  private usernameSubject = new BehaviorSubject<string | null>(null);
+  username$ = this.usernameSubject.asObservable();
 
   setUsername(username: string): void {
-    this.usernameSubject.next(username); // Update the username
+    this.usernameSubject.next(username);
   }
 
   getUsername(): string | null {
-    return this.usernameSubject.getValue(); // Retrieve the current username
+    return this.usernameSubject.getValue();
   }
 }
