@@ -1,0 +1,8 @@
+.background-wrapper {
+    background-color: #e3f2fd;
+    min-height: 50vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
