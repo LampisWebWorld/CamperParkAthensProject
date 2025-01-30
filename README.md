@@ -72,3 +72,30 @@ To backend τρέχει στο http://localhost:3000
 To swagger αρχείο για δοκιμές του backend τρέχει στο http://localhost:3000/api-docs/
 
 ## Deployment
+
+### Frontend (Angular)
+
+1. Κάνουμε build το project για production
+   ```bash
+   ng build --configuration production
+
+2. Ο φάκελος /dist θα γίνει deploy σε όποιο hosting service έχουμε επιλέξει (εφόσον θα γινόταν live η εφαρμογή)
+
+### Backend (Node.js)
+
+1. Για την διευκόλυνση της εξέτασης της εργασίας, έχω συμπεριλάβει όλα τα env files στο commit που έχω κάνει στο GitHub. Υπό κανονικές συνθήκες θα διαχειριζόμουν τις πληροφορίες που περιέχονται σε αυτά τα αρχεία με τις απαραίτητες διαδικασίες ασφαλείας.
+
+2. Ξεκινήστε τον server του backend σε production mode:
+   ```bash
+   npm start
+3. Αντίστοιχα με το frontend, το backend θα γίνει deploy σε όποιο hosting service έχουμε επιλέξει.
+
+## API Documentation
+
+Το ΑPI του backend υποστηρίζει τα ακόλουθα endpoints:
+
+### Authentication
+
+- **Register a new user**:
+  ```http
+  POST /auth/register
