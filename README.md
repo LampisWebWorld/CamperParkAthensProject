@@ -13,8 +13,6 @@
    - [Backend (Node.js)](#backend-nodejs)
 4. [Deployment](#deployment)
 5. [API Documentation](#api-documentation)
-6. [Contributing](#contributing)
-7. [License](#license)
 
 ---
 
@@ -99,3 +97,45 @@ To swagger αρχείο για δοκιμές του backend τρέχει στο
 - **Register a new user**:
   ```http
   POST /auth/register
+
+- **Log in**:
+  ```http
+  POST /auth/login
+
+### Users
+
+- **Get all users**:
+  ```http
+  GET /users
+
+- **Get a specific user**:
+  ```http
+  GET /users/:username
+
+- **Update a user**:
+  ```http
+  PATCH /users/:username
+
+- **Delete a user**:
+  ```http
+  DELETE /users/:username
+
+### Customers
+
+- **Get all customers**:
+  ```http
+  GET /customers
+
+- **Get a specific customer**:
+  ```http
+  GET /customers/:username
+
+- **Update a customer**:
+  ```http
+  PATCH /customers/:username
+
+- **Delete a customer**:
+  ```http
+  DELETE /customers/:username
+
+Ευχαριστώ.
