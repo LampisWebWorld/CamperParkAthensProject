@@ -88,6 +88,8 @@ To swagger αρχείο για δοκιμές του backend τρέχει στο
    npm start
 3. Αντίστοιχα με το frontend, το backend θα γίνει deploy σε όποιο hosting service έχουμε επιλέξει.
 
+#### Για το πρώτο login, παρακαλώ χρησιμοποιήστε τον user από το αρχείο user_credentials.txt
+
 ## API Documentation
 
 Το ΑPI του backend υποστηρίζει τα ακόλουθα endpoints:
